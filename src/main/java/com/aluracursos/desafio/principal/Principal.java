@@ -31,7 +31,7 @@ public class Principal {
                 .forEach(System.out::println);
 
         //Busqueda de libros por nombre
-        System.out.println("Ingrese el nombre del libro que desea buscar:");
+        System.out.println("Ingrese el nombre del libro que desea buscar: ");
         var tituloLibro = teclado.nextLine();
         json = consumoAPI.obtenerDatos(URL_BASE+"?search=" + tituloLibro.replace(" ","+"));
         var datosBusqueda = conversor.obtenerDatos(json, Datos.class);
