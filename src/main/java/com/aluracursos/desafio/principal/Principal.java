@@ -39,10 +39,21 @@ public class Principal {
                 .filter(l -> l.titulo().toUpperCase().contains(tituloLibro.toUpperCase()))
                 .findFirst();
         if(libroBuscado.isPresent()){
-            System.out.println("Libro Encontrado! \uD83D\uDE42");
-            System.out.println(libroBuscado.get());
-        }else {
-            System.out.println("Libro no encontrado! \uD83D\uDE41");
+            System.out.println("Libro Encontrado! 😊");
+
+            DatosLibros libro = libroBuscado.get();
+            System.out.println("Título: " + libro.titulo());
+            System.out.println("Idioma(s): " + libro.idiomas());
+            System.out.println("Número de descargas: " + libro.numeroDeDescargas());
+
+            System.out.println("Autor(es):");
+            libro.autor().forEach(a -> {
+                System.out.println(" - Nombre: " + a.nombre());
+                System.out.println("   Año de nacimiento: " + a.fechaDeNacimiento());
+            });
+
+        } else {
+            System.out.println("Libro no encontrado! 😟");
         }
 
         //Trabajando con estadisticas
@@ -52,6 +63,6 @@ public class Principal {
         System.out.println("Cantidad media de descargas: " + est.getAverage());
         System.out.println("Cantidad máxima de descargas: "+ est.getMax());
         System.out.println("Cantidad mínima de descargas: " + est.getMin());
-        System.out.println(" Cantidad de registros evaluados para calcular las estadisticas: " + est.getCount());
+        System.out.println("Cantidad de registros evaluados para calcular las estadisticas: " + est.getCount());
     }
 }
