@@ -21,9 +21,11 @@ public class Principal {
         System.out.println(json);
         var datos = conversor.obtenerDatos(json,Datos.class);
         System.out.println(datos);
+        System.out.println();
 
         //Top 10 libros más descargados
-        System.out.println("Top 10 libros más descargados");
+        System.out.println("Top 10 libros más descargados: ");
+        System.out.println();
         datos.resultados().stream()
                 .sorted(Comparator.comparing(DatosLibros::numeroDeDescargas).reversed())
                 .limit(10)
